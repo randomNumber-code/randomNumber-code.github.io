@@ -21,11 +21,13 @@
                 box-shadow: 0 0 10px rgba(0,0,0,0.1);
             }
             input, button{
-                display: block;
-                width: 100%;
+                display: block;                
                 margin: 10px 0;
                 padding: 10px;
                 font-size: 16px;
+            }
+            input{
+                width: 94%;
             }
             button{
                 background-color: #007bff;
@@ -33,6 +35,7 @@
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
+                width: 100%;
             }
             button:hover{
                 background-color: #0056b3;
@@ -70,7 +73,8 @@
                     return;
                 }
 
-                const randomNumber = Math.floor(Math.random()*(lastNumber - firstNumber + 1)) + firstNumber;
+                //const randomNumber = Math.floor(Math.random()*(lastNumber - firstNumber + 1)) + firstNumber;
+                const randomNumber = Math.floor(Math.random()*5) + 1;
                 document.getElementById("result").textContent = `Random Number: ${randomNumber}`;
             }
         </script>
