@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Best Random Number Generator</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                padding: 20px;
+                background-color: #f4f4f9;
+                color: #333;
+            }
+            .container {
+                max-width: 400px;
+                margin: auto;
+                padding: 20px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            input, button{
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+                padding: 10px;
+                font-size: 16px;
+            }
+            button{
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            button:hover{
+                background-color: #0056b3;
+            }
+            #result{
+                text-align: center;
+                font-size: 20px;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Random Number Generator</h1>
+            <label for="firstNumber">Enter First Number:</label>
+            <input type="number" id="firstNumber" placeholder="First number">
+            <label for="lastNumber">Enter Last Number:</label>
+            <input type="number" id="lastNumber" placeholder="Last number">
+            <button onclick="generateRandomNumber()">Generate Random Number</button>
+            <div id="result"></div>
+        </div>
+
+        <script>
+            function generateRandomNumber() {
+                const firstNumber = parseInt(document.getElementById("firstNumber").value);
+                const lastNumber = parseInt(document.getElementById("lastNumber").value);
+
+                if(isNaN(firstNumber) || isNaN(lastNumber)){
+                    document.getElementById("result").textContent = "Please enter valid numbers!";
+                    return;
+                }
+
+                if(firstNumber > lastNumber) {
+                    document.getElementById("result").textContent = "The first number must be less than or equal to the last number!";
+                    return;
+                }
+
+                const randomNumber = Math.floor(Math.random()*(lastNumber - firstNumber + 1)) + firstNumber;
+                document.getElementById("result").textContent = `Random Number: ${randomNumber}`;
+            }
+        </script>
+    </body>
+</html>
